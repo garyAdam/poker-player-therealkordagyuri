@@ -50,6 +50,8 @@ class Player {
 
             }
           }
+          // no pair
+          bet(0);
         }
         this.call(bet, gameState);
       }
