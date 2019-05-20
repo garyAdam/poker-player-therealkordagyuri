@@ -2,7 +2,7 @@ class Player {
   static;
 
   static get VERSION() {
-    return '2.9';
+    return '3.11';
   }
 
   static betRequest(gameState, bet) {
@@ -44,7 +44,7 @@ class Player {
 
       bet(5)
     } catch (e) {
-      console.error("catched");
+      console.error(e + "catched");
       bet(10)
     }
   }
