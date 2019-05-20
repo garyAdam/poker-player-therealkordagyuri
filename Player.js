@@ -1,5 +1,4 @@
 class Player {
-  static;
 
   static get VERSION() {
     return '3.11';
