@@ -5,7 +5,7 @@ class Player {
 
   static betRequest(gameState, bet) {
     let holecards;
-
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+gameState+"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbb");
     for (let player of gameState.players)
       if (player.name == "TheRealKordaGyuri") {
         {
