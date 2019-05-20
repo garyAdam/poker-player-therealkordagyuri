@@ -1,7 +1,7 @@
 class Player {
 
   static get VERSION() {
-    return '3.73';
+    return '4.0';
   }
 
   static betRequest(gameState, bet) {
@@ -44,18 +44,29 @@ class Player {
         }
       } else {
         if (communityCards) {
-          for (let card of communityCards) {
-            //drill
-            if (holecards[0].rank == card.rank && holecards[1].rank == card.rank) {
-              this.raise(bet, gameState);
-            }
-            else if (holecards[0].rank == card.rank || holecards[1].rank == card.rank) {
-              this.raise(bet, gameState);
-
-            }
+          let pairCounter = 0;
+          if (holecards[0].rank == holecards[1].rank) {
+            pairCounter++;
           }
-          // no pair
-          bet(0);
+          for (let card of communityCards) {
+            if (holecards[0].rank == card.rank || holecards[1].rank == card.rank) {
+              pairCounter++;
+            }
+
+          }
+          switch (pairCounter) {
+            case 2:
+              this.call(bet, gameState);
+              break;
+            case 3:
+              this.raise(bet, gameState);
+              break;
+            case 4:
+              this.allIn(bet, gameState);
+              break;
+
+          }
+
         }
         this.call(bet, gameState);
       }
@@ -73,6 +84,9 @@ class Player {
 
   static raise(bet, gameState) {
     bet(parseInt(gameState.current_buy_in) - parseInt(gameState.players[gameState.in_action].bet) + parseInt(gameState.minimum_raise));
+  }
+  static allIn(bet, gameState) {
+    bet(10000000000000000000);
   }
 
   static showdown(gameState) {
