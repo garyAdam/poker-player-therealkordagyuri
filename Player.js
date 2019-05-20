@@ -48,7 +48,7 @@ class Player {
     }
   }
 
-  showdown(gameState) {
+  static showdown(gameState) {
   }
 }
 
