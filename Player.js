@@ -15,13 +15,29 @@ class Player {
           }
       }
     }
-    if (holecards[0].rank == "A" || holecards[1].rank == "A") {
-      bet(100);
-    } else {
-
-
-      bet(5)
+    // first round
+    if (gameState.community_cards.length == 0) {
+      // we have a pair
+      if (holecards[0].rank == holecards[1].rank) {
+        // small pair
+        if (holecards[0].rank < "10") {
+          //call
+          bet(parseInt(gameState.current_buy_in) - parseInt(gameState.players[in_action][bet]));
+      }
+        else {
+          //minimum raise
+          bet(parseInt(gameState.current_buy_in) - parseInt(gameState.players[in_action][bet]) + parseInt(gameState.minimum_raise));
+        }
+      }
+      else {
+        bet(0);
+      }
     }
+    else {
+      bet(parseInt(gameState.current_buy_in) - parseInt(gameState.players[in_action][bet]));
+    }
+
+
   }
 
   static showdown(gameState) {
