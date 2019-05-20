@@ -5,7 +5,11 @@ class Player {
 
   static betRequest(gameState, bet) {
     let holecards = [];
-    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+gameState+"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbb");
+    let communityCards = [];
+
+    for (let card of gameState.communityCards) {
+        communityCards.push(card);
+    }
 
     for (let player of gameState.players) {
       if (player.name == "TheRealKordaGyuri") {
@@ -15,12 +19,12 @@ class Player {
           }
       }
     }
-    if (holecards[0].rank == "A" || holecards[1].rank == "A") {
-      bet(100);
+    if (holecards[0].rank == holecards[1].rank ) {
+      bet(gameState.current_buy_in - gameState.players[in_action][bet] + gameState.minimum_raise);
     } else {
 
 
-      bet(5)
+      bet(0)
     }
   }
 
