@@ -1,11 +1,12 @@
 class Player {
   static get VERSION() {
-    return '1.7';
+    return '1.8';
   }
 
   static betRequest(gameState, bet) {
     let holecards;
-    for (let player of gameState.game_state.players)
+
+    for (let player of gameState.players)
       if (player.name == "TheRealKordaGyuri") {
         {
           for (let i = 0; i < player.hole_cards.length; i++) {
