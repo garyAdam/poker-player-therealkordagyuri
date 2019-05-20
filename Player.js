@@ -1,7 +1,7 @@
 class Player {
 
   static get VERSION() {
-    return '3.42';
+    return '3.43';
   }
 
   static betRequest(gameState, bet) {
@@ -43,10 +43,6 @@ class Player {
           bet(0);
         }
       } else {
-        bet(parseInt(gameState.current_buy_in) - parseInt(gameState.players[gameState.in_action].bet));
-      }
-    else
-      {
         if (communityCards) {
           for (let card of communityCards) {
             if (holecards[0].rank == card.rank || holecards[1].rank == card.rank) {
