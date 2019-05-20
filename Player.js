@@ -5,6 +5,7 @@ class Player {
 
   static betRequest(gameState, bet) {
     let holecards = [];
+    console.error(gameState);
     let communityCards = [];
 
     for (let card of gameState.communityCards) {
@@ -20,7 +21,7 @@ class Player {
       }
     }
     if (holecards[0].rank == holecards[1].rank ) {
-      bet(gameState.current_buy_in - gameState.players[in_action][bet] + gameState.minimum_raise);
+      bet(gameState.current_buy_in + gameState.minimum_raise);
     } else {
 
 
