@@ -58,13 +58,13 @@ class Player {
             case 0:
               bet(0);
               break;
-            case 2:
+            case 1:
               this.call(bet, gameState);
               break;
-            case 3:
+            case 2:
               this.raise(bet, gameState);
               break;
-            case 4:
+            case 3:
               this.allIn(bet, gameState);
               break;
 
