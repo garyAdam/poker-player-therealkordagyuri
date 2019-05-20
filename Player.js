@@ -1,38 +1,31 @@
 class Player {
   static get VERSION() {
-    return '2.4';
+    return '2.5';
   }
 
   static betRequest(gameState, bet) {
-    try {
+    let holecards = [];
+    let communityCards = [];
 
-
-      let holecards = [];
-      console.error(gameState);
-      let communityCards = [];
-
-      for (let card of gameState.communityCards) {
+    console.error(gameState);
+    for (let card of gameState.communityCards) {
         communityCards.push(card);
-      }
+    }
 
-      for (let player of gameState.players) {
-        if (player.name == "TheRealKordaGyuri") {
+    for (let player of gameState.players) {
+      if (player.name == "TheRealKordaGyuri") {
 
           for (let i = 0; i < player.hole_cards.length; i++) {
             holecards[i] = player.hole_cards[i];
           }
-        }
       }
-      if (holecards[0].rank == holecards[1].rank) {
-        bet(gameState.current_buy_in + gameState.minimum_raise);
-      } else {
+    }
+    if (holecards[0].rank == holecards[1].rank ) {
+      bet(100);
+    } else {
 
 
-        bet(0)
-      }
-    } catch (e) {
-      bet(50);
-
+      bet(5)
     }
   }
 
