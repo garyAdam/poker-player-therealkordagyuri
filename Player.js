@@ -45,6 +45,10 @@ class Player {
       } else {
         if (communityCards) {
           for (let card of communityCards) {
+            //drill
+            if (holecards[0].rank == card.rank && holecards[1].rank == card.rank) {
+              this.raise(bet, gameState);
+            }
             if (holecards[0].rank == card.rank || holecards[1].rank == card.rank) {
               this.raise(bet, gameState);
 
