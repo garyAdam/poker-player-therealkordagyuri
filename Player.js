@@ -39,8 +39,11 @@ class Player {
           this.call(bet, gameState)
         }
         //no big boi && no pair
-        else {
+        else if (gameState.players[gameState.in_action].bet != 0 && gameState.current_by_in < 100) {
+          this.call(bet, gameState);
+        } else {
           bet(0);
+
         }
       } else {
         if (communityCards) {
