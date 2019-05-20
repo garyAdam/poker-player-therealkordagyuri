@@ -1,7 +1,7 @@
 class Player {
 
   static get VERSION() {
-      return '4.kecske';
+      return '4.kecske.1';
   }
 
   static betRequest(gameState, bet) {
@@ -26,7 +26,7 @@ class Player {
         // we have a pair
         if (holecards[0].rank == holecards[1].rank) {
           // small pair
-          if (holecards[0].rank <= "6") {
+          if (holecards[0].rank <= "6" && holecards[0].rank !="10") {
             //call
             this.call(bet, gameState);
           } else {
