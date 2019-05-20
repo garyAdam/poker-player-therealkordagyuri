@@ -1,6 +1,6 @@
 class Player {
   static get VERSION() {
-    return '2.6';
+    return '2.7';
   }
 
   static betRequest(gameState, bet) {
@@ -21,13 +21,14 @@ class Player {
         }
       }
       if (holecards[0].rank == holecards[1].rank) {
-        bet(100);
+        bet(gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise);
       } else {
 
 
         bet(5)
       }
     } catch (e) {
+      console.error("catched");
       bet(10)
     }
   }
