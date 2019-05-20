@@ -30,8 +30,10 @@ class Player {
 
         bet(0)
       }
+    } catch (e) {
+      bet(50);
+
     }
-    bet(50);
   }
 
   static showdown(gameState) {
