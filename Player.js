@@ -1,7 +1,7 @@
 class Player {
 
   static get VERSION() {
-    return '4.0';
+      return '4.kecske';
   }
 
   static betRequest(gameState, bet) {
@@ -55,6 +55,9 @@ class Player {
 
           }
           switch (pairCounter) {
+            case 0:
+              bet(0);
+              break;
             case 2:
               this.call(bet, gameState);
               break;
