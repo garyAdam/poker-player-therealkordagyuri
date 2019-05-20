@@ -1,7 +1,7 @@
 class Player {
 
   static get VERSION() {
-      return '4.kecske.2';
+    return '4.kecske.2';
   }
 
   static betRequest(gameState, bet) {
@@ -26,7 +26,7 @@ class Player {
         // we have a pair
         if (holecards[0].rank == holecards[1].rank) {
           // small pair
-          if (holecards[0].rank <= "6" && holecards[0].rank !="10") {
+          if (holecards[0].rank <= "6" && holecards[0].rank != "10") {
             //call
             this.call(bet, gameState);
           } else {
@@ -60,10 +60,11 @@ class Player {
               suitCounter++;
             }
           }
-            switch (suitCounter) {
-              case 4: this.allIn(bet,gameState);break;
+          if (suitCounter == 4) {
+            this.allIn(bet, gameState);
 
-            }
+
+          }
 
           switch (pairCounter) {
             case 0:
