@@ -9,7 +9,7 @@ class Player {
       let holecards = [];
       let communityCards = [];
 
-      for (let card of gameState.communityCards) {
+      for (let card of gameState.community_cards) {
         communityCards.push(card);
       }
 
