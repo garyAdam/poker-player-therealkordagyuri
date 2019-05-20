@@ -26,7 +26,7 @@ class Player {
         // we have a pair
         if (holecards[0].rank == holecards[1].rank) {
           // small pair
-          if (holecards[0].rank < "10") {
+          if (holecards[0].rank <= "6") {
             //call
             this.call(bet, gameState);
           } else {
